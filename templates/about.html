@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Sourav Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #ff6b35;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: #999;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6b35;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10rem 5% 6rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h3 {
+            color: #ff6b35;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text h1 span {
+            color: #ff6b35;
+        }
+
+        .hero-text p {
+            color: #999;
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: #ff6b35;
+            font-weight: 600;
+        }
+
+        /* Image Container */
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1;
+            margin: 0 auto;
+        }
+
+        .orbit-ring {
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 50%;
+            animation: spin 30s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .profile-pic {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 75%;
+            height: 75%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b35, #ff8c42);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .skill-badge {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background: #141414;
+            border: 2px solid #ff6b35;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .skill-badge:hover {
+            transform: scale(1.15);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.5);
+        }
+
+        .skill-badge img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        /* Badge Positioning */
+        .badge-1 {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .badge-2 {
+            top: 15%;
+            right: 5%;
+        }
+
+        .badge-3 {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        .badge-4 {
+            bottom: 15%;
+            right: 5%;
+        }
+
+        .badge-5 {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .badge-6 {
+            bottom: 15%;
+            left: 5%;
+        }
+
+        .badge-7 {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .badge-8 {
+            top: 15%;
+            left: 5%;
+        }
+
+        /* --- UPDATED SKILLS SECTION --- */
+        .skills-section {
+            background: #0a0a0a;
+            padding: 8rem 5%;
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title span {
+            color: #ff6b35;
+        }
+
+        .section-title p {
+            color: #666;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        /* Flip Cards Design */
+        .skill-card {
+            height: 300px;
+            perspective: 1500px;
+            cursor: pointer;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .skill-card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 24px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card-front {
+            background: linear-gradient(145deg, #141414 0%, #0d0d0d 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Card Decoration */
+        .card-front::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .card-front h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            background: linear-gradient(to right, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-front p {
+            color: #ff6b35;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .card-back {
+            background: #111;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            box-shadow: 0 0 30px rgba(255, 107, 53, 0.1);
+        }
+
+        .card-back h3 {
+            font-size: 1.3rem;
+            color: #ff6b35;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-back ul {
+            list-style: none;
+        }
+
+        .card-back li {
+            padding: 0.4rem 0;
+            color: #bbb;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-back li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #ff6b35;
+            border-radius: 50%;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Resume Button */
+        .resume-btn {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resume-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.4s ease;
+            z-index: 0;
+        }
+
+        .resume-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+            background: linear-gradient(135deg, #ff8c42 0%, #ff6b35 100%);
+        }
+
+        .resume-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Download Button */
+        .download-btn {
+            display: inline-block;
+            margin-bottom: 2rem;
+            margin-left: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 2px solid #ff6b35;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #ff6b35;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #ff6b35;
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .download-btn:hover {
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .download-btn:hover::before {
+            left: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 8rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .image-wrapper {
+                order: -1;
+                max-width: 320px;
+            }
+
+            .skill-badge {
+                width: 55px;
+                height: 55px;
+            }
+
+            .skill-badge img {
+                width: 30px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">Sourav<span>Portfolio</span></div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#works">Works</a></li>
+                
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h3>ABOUT ME</h3>
+            <h1>Transforming Data into <span>Intelligent Solutions</span></h1>
+
+            <p>I'm Sourav, an <span class="highlight">AI/ML Engineer</span> and <span class="highlight">Data
+                    Scientist</span> passionate about building intelligent systems that solve real-world problems
+                through data-driven innovation.</p>
+
+            <p>With expertise in machine learning, deep learning, and modern development practices, I create <span
+                    class="highlight">scalable AI solutions</span> that deliver measurable impact. From predictive
+                models to production-ready systems, I bridge the gap between research and application.</p>
+
+            <p>My work combines technical precision with creative problem-solving, ensuring every solution is not just
+                functional, but exceptional.</p>
+        </div>
+
+        <div class="image-wrapper">
+            <div class="orbit-ring"></div>
+
+            <div class="profile-pic">
+                <img src="/uploads/profile.jpeg" alt="Sourav">
+            </div>
+
+            <div class="skill-badge badge-1"><img src="/uploads/sklearn.png" alt="ML"></div>
+            <div class="skill-badge badge-2"><img src="/uploads/torch.png" alt="DL"></div>
+            <div class="skill-badge badge-3"><img src="/uploads/python.png" alt="Python"></div>
+            <div class="skill-badge badge-4"><img src="/uploads/tf.png" alt="TensorFlow"></div>
+            <div class="skill-badge badge-5"><img src="/uploads/fastapi-1.png" alt="FastApi"></div>
+            <div class="skill-badge badge-6"><img src="/uploads/psql.png" alt="PostGresql"></div>
+            <div class="skill-badge badge-7"><img src="/uploads/pandas.png" alt="Pandas"></div>
+            <div class="skill-badge badge-8"><img src="/uploads/huggingface.png" alt="HuggingFace"></div>
+        </div>
+    </section>
+
+    <section class="skills-section">
+        <div class="skills-container">
+            <div class="section-title">
+                <a href="static\sourav das resume .pdf" target="_blank" class="resume-btn">
+                    View Resume
+                </a>
+                <a href="static\sourav das resume .pdf" download class="download-btn">
+                    ↓ Download
+                </a>
+                <h2>My <span>Expertise</span></h2>
+                <p>Hover to explore details</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>Machine Learning</h3>
+                            <p>Predictive Modeling</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Machine Learning</h3>
+                            <ul>
+                                <li>Supervised & Unsupervised Learning</li>
+                                <li>Hyperparameter Tuning & Optimization</li>
+                                <li>Feature Engineering & Selection</li>
+                                <li>Scikit-learn, XGBoost, LightGBM</li>
+                                <li>Deployment of ML Pipelines</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>Deep Learning</h3>
+                            <p>Neural Architectures</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Deep Learning</h3>
+                            <ul>
+                                <li>CNN, RNN, & Transformers</li>
+                                <li>Computer Vision & NLP</li>
+                                <li>TensorFlow & PyTorch</li>
+                                <li>Fine-tuning & Transfer Learning</li>
+                                <li>Model Optimization (Quantization)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>Data Science</h3>
+                            <p>Turning Data Into Meaningful Insights</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Data Science</h3>
+                            <ul>
+                                <li>Statistical Modeling & Analysis</li>
+                                <li>Data Visualization & Model Building</li>
+                                <li>Pandas, NumPy, SQL</li>
+                                <li>A/B Testing & Experiments</li>
+                                <li>Business Intelligence Reports</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>NLP</h3>
+                            <p>Building Systems That Understand Human Language</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>NLP</h3>
+                            <ul>
+                                <li>Text Processing & Tokenization</li>
+                                <li>Natural Language Understanding</li>
+                                <li>Sentiment Analysis & Classification</li>
+                                <li>Transformers & Pretrained Models</li>
+                                <li>Hugging Face & NLP Libraries</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>Backend</h3>
+                            <p>System Architecture</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Backend Development</h3>
+                            <ul>
+                                <li>RESTful </li>
+                                <li>Database Design (PostgreSQL)</li>
+                                <li>FastApi & Pydantic Model</li>
+                                <li>Authentication & Authorization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>Computer Vision</h3>
+                            <p>Understanding And Analyzing Visual Data</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Computer Vision</h3>
+                            <ul>
+                                <li>Image Processing & Feature Extraction</li>
+                                <li>Object Detection & Image Classification</li>
+                                <li>OpenCV & Computer Vision Libraries</li>
+                                <li>CNN-based Vision Models</li>
+                                <li>Real-world Vision Applications</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
