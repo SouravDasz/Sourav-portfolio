@@ -3,7 +3,7 @@ from fastapi.templating import Jinja2Templates
 
 router = APIRouter()
 
-templates = Jinja2Templates(directory=r"C:\profolio\Sourav-portfolio\templates")
+templates = Jinja2Templates(directory="templates")
 
 @router.get("/")
 def home(request: Request):
