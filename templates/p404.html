@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 - Page Not Found</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* container */
+.container {
+    max-width: 600px;
+    padding: 2rem;
+}
+
+/* big 404 */
+.error-code {
+    font-size: 6rem;
+    font-weight: 800;
+    color: #ff6b35;
+}
+
+/* text */
+h1 {
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+p {
+    color: #aaa;
+    margin-bottom: 25px;
+}
+
+/* button */
+.home-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 30px;
+    background: #ff6b35;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.home-btn:hover {
+    background: #ff8c42;
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(255,107,53,0.4);
+}
+
+/* subtle glow */
+.container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(255,107,53,0.08), transparent 70%);
+    z-index: -1;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="error-code">404</div>
+    <h1>Page Not Found</h1>
+    <p>The page you are looking for doesn’t exist or has been moved.</p>
+
+    <a href="/" class="home-btn">Go Back Home</a>
+</div>
+
+</body>
+</html>

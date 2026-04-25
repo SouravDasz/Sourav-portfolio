@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Sourav Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+}
+
+/* ===== NAVBAR (EXACT SAME) ===== */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 5%;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #ff6b35;
+}
+
+nav ul {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+nav a {
+    color: #999;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ff6b35;
+}
+
+/* ===== HEADER ===== */
+.contact-header {
+    text-align: center;
+    padding-top: 8rem;
+    margin-bottom: 3rem;
+}
+
+.contact-header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+}
+
+.contact-header span {
+    color: #ff6b35;
+}
+
+.contact-header p {
+    color: #888;
+    margin-top: 10px;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem 5% 5rem;
+}
+
+/* ===== GRID ===== */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+/* ===== CARD ===== */
+.card {
+    background: linear-gradient(145deg, #141414, #0d0d0d);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 0 25px rgba(255,107,53,0.2);
+}
+
+/* ===== TEXT ===== */
+.card h2 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #aaa;
+    font-size: 0.95rem;
+}
+
+/* ===== SOCIAL ===== */
+.socials {
+    margin-top: 15px;
+}
+
+.socials a {
+    display: inline-block;
+    margin: 6px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    border: 1px solid #ff6b35;
+    color: #ff6b35;
+    transition: 0.3s;
+}
+
+.socials a:hover {
+    background: #ff6b35;
+    color: white;
+}
+
+/* ===== FORM ===== */
+form {
+    margin-top: 10px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    background: #0d0d0d;
+    border: 1px solid #222;
+    border-radius: 10px;
+    color: white;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #ff6b35;
+    outline: none;
+}
+
+button {
+    background: #ff6b35;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff8c42;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-header h1 {
+        font-size: 2.2rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR (UNCHANGED) ===== -->
+<header>
+    <nav>
+        <div class="logo">Sourav<span>Portfolio</span></div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/projects">Projects</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ===== HEADER ===== -->
+<section class="contact-header">
+    <h1>Contact <span>Me</span></h1>
+    <p>I am Sourav Das — feel free to connect with me</p>
+</section>
+
+<!-- ===== CONTENT ===== -->
+<section class="container">
+<div class="grid">
+
+<!-- LEFT SIDE -->
+<div class="card">
+    <h2>Connect with me</h2>
+    <p>Open for projects, collaborations, or just a chat.</p>
+
+    <p style="margin-top:15px;">
+        <b>Email:</b><br>
+        <a href="mailto:your_email@gmail.com" style="color:#ff6b35;">
+            sourav177official@gmail.com
+        </a>
+    </p>
+
+    <div class="socials">
+        <a href="https://github.com/SouravDasz" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/sourav-das-90a2b6378/" target="_blank">LinkedIn</a>
+        <a href="https://www.kaggle.com/souravdas19" target="_blank">Kaggle</a>
+        <a href="https://www.instagram.com/souravdas_z?igsh=c3NvZHhjbHR2ZGth">Instagram</a>
+        <a href="https://www.facebook.com/share/1LsiS5g7kD/">Facebook</a>
+    </div>
+</div>
+
+<!-- RIGHT SIDE -->
+<div class="card">
+    <h2>Send Message</h2>
+    <div><h2>this section is under working  please avoid </h2></div>
+    <form method="POST" action="/contact">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+
+</div>
+
+</div>
+</section>
+
+</body>
+</html>

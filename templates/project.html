@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Sourav Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+        }
+
+        /* ===== NAVBAR ===== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #ff6b35;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: #999;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6b35;
+        }
+
+        /* ===== HEADER ===== */
+        .projects-header {
+            text-align: center;
+            padding-top: 8rem;
+            margin-bottom: 3rem;
+        }
+
+        .projects-header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+        }
+
+        .projects-header span {
+            color: #ff6b35;
+        }
+
+        .projects-header p {
+            color: #888;
+            margin-top: 10px;
+        }
+
+        /* ===== CONTAINER ===== */
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5% 5rem;
+        }
+
+        /* ===== GRID ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* ===== CARD ===== */
+        .project-card {
+            background: linear-gradient(145deg, #141414, #0d0d0d);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* glow */
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top, rgba(255, 107, 53, 0.08), transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* hover */
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 35px rgba(255, 107, 53, 0.25);
+        }
+
+        /* title */
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.6rem;
+        }
+
+        /* desc */
+        .project-card p {
+            color: #aaa;
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+
+        /* tech */
+        .tech-stack {
+            font-size: 0.8rem;
+            color: #ff6b35;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        /* buttons */
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-links a {
+            font-size: 0.8rem;
+            text-decoration: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* github */
+        .github {
+            background: #ff6b35;
+            color: white;
+        }
+
+        .github:hover {
+            background: #ff8c42;
+        }
+
+        /* demo */
+        .demo {
+            border: 1px solid #ff6b35;
+            color: #ff6b35;
+        }
+
+        .demo:hover {
+            background: #ff6b35;
+            color: white;
+        }
+
+        /* details */
+        .details {
+            border: 1px solid #333;
+            color: #bbb;
+        }
+
+        .details:hover {
+            border-color: #ff6b35;
+            color: #ff6b35;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .projects-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav>
+            <div class="logo">Sourav<span>Portfolio</span></div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HEADER -->
+    <section class="projects-header">
+        <h1>My <span>Projects</span></h1>
+        <p>AI/ML and data-driven applications I've built</p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects-container">
+        <div class="projects-grid">
+
+            {% for project in projects %}
+            <div class="project-card">
+
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.desc }}</p>
+
+                <div class="tech-stack">
+                    {{ project.tech | join(" • ") }}
+                </div>
+
+                <div class="project-links">
+
+                    <!-- GitHub -->
+                    <a href="{{ project.github }}" target="_blank" class="github">
+                        GitHub
+                    </a>
+
+                    <!-- Live -->
+                    {% if project.demo %}
+                    <a href="{{ project.demo }}" target="_blank" class="demo">
+                        Live
+                    </a>
+                    {% endif %}
+
+                    <!-- Details -->
+                    <!--<a href="/projects/{{ project.slug }}" class="details">
+                        Details
+                    </a> -->
+
+                </div>
+
+            </div>
+            {% endfor %}
+
+        </div>
+    </section>
+
+</body>
+
+</html>
