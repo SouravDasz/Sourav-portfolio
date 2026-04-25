@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+    body { 
+        font-family: 'Poppins', sans-serif; 
+    }
+
+    .orange-glow {
+        box-shadow: 0 0 25px rgba(255, 110, 0, 0.2);
+    }
+
+    .glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* INTRO SCREEN */
+    #intro {
+        position: fixed;
+        inset: 0;
+        background: #0a0a0a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: all 1s ease;
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    /* zoom-out exit */
+    #intro.hide {
+        opacity: 0;
+        transform: scale(1.4);
+        pointer-events: none;
+    }
+
+    /* typing text */
+    #typing-text {
+        font-size: 3rem;
+        font-weight: bold;
+        color: white;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid #f97316;
+        animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+        0%, 100% { border-color: #f97316; }
+        50% { border-color: transparent; }
+    }
+
+    /* COOL FLOATING BADGES */
+    .floating-badge {
+        animation: float 3s ease-in-out infinite;
+        transition: all 0.3s ease;
+    }
+
+    .floating-badge:hover {
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 0 30px rgba(249, 115, 22, 0.4);
+        border-color: rgba(249, 115, 22, 0.6);
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+
+    .floating-badge:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .floating-badge:nth-child(2) {
+        animation-delay: 0.5s;
+    }
+
+    .floating-badge:nth-child(3) {
+        animation-delay: 1s;
+    }
+
+    .floating-badge:nth-child(4) {
+        animation-delay: 1.5s;
+    }
+
+    /* Badge glow pulse */
+    @keyframes pulse-glow {
+        0%, 100% { 
+            box-shadow: 0 0 10px rgba(249, 115, 22, 0.2);
+        }
+        50% { 
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+        }
+    }
+
+    .badge-glow {
+        animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    /* =========================
+       MOBILE RESPONSIVENESS ONLY
+       ========================= */
+    @media (max-width: 768px) {
+
+        #typing-text {
+            font-size: 1.8rem;
+        }
+
+        nav {
+            padding: 20px 20px;
+        }
+
+        main {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        h1 {
+            font-size: 2.2rem !important;
+            line-height: 2.6rem !important;
+        }
+
+        p {
+            font-size: 0.95rem;
+        }
+
+        .floating-badge {
+            font-size: 0.7rem;
+            padding: 8px 12px;
+        }
+
+        .md\\:w-96, .md\\:h-96 {
+            width: 220px !important;
+            height: 220px !important;
+        }
+
+        .md\\:w-1\\2 {
+            width: 100% !important;
+        }
+
+        .flex.space-x-5 {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+
+</style>
+</head>
+
+<body class="bg-[#0a0a0a] text-white min-h-screen overflow-x-hidden">
+
+<!-- INTRO -->
+<div id="intro">
+    <div id="typing-text"></div>
+</div>
+
+<!-- NAV -->
+<nav class="flex justify-between items-center px-10 py-8 max-w-7xl mx-auto">
+    <div class="text-2xl font-bold tracking-tighter">
+       Sourav<span class="text-orange-500">Portfolio</span>
+    </div>
+    <div class="hidden md:flex space-x-10 text-sm font-medium text-gray-400">
+        <a href="#" class="hover:text-orange-500 transition">Home</a>
+        <a href="#" class="hover:text-orange-500 transition">Works</a>
+        <a href="#" class="hover:text-orange-500 transition">Testimonials</a>
+        <a href="#" class="hover:text-orange-500 transition">Contact</a>
+    </div>
+</nav>
+
+<!-- MAIN -->
+<main class="max-w-7xl mx-auto px-10 pt-16 pb-20 flex flex-col md:flex-row items-center justify-between relative">
+
+    <div class="md:w-1/2 z-10">
+        <span class="text-orange-500 font-medium tracking-widest text-sm mb-4 block">HELLO !</span>
+        <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
+            I'm <span class="text-orange-500">Sourav,</span><br>
+           AI/ML Engineer & Data Scientist
+        </h1>
+        <p class="text-gray-400 text-lg mb-10 max-w-md">
+           Building AI/ML systems and data-driven applications with clean, modern code
+        </p>
+
+                <div class="flex space-x-5">
+            
+            <a href="/projects" 
+            class="bg-orange-600 hover:bg-orange-500 px-8 py-3 rounded-full font-semibold transition orange-glow inline-block">
+                View my work
+            </a>
+
+            <a href="/contact" 
+            class="border border-gray-700 hover:border-orange-500 px-8 py-3 rounded-full font-semibold transition inline-block">
+                Let's talk
+            </a>
+
+        </div>
+    </div>
+
+    <div class="md:w-1/2 mt-20 md:mt-0 relative flex justify-center">
+        <div class="absolute w-72 h-72 md:w-[450px] md:h-[450px] bg-orange-600 rounded-full opacity-20 blur-[100px]"></div>
+
+        <div class="relative z-[5] w-64 h-64 md:w-96 md:h-96 rounded-full border-4 border-orange-500/30 overflow-hidden">
+            <img src="/uploads/profile.jpeg" class="w-full h-full object-cover transition duration-500">
+        </div>
+
+        <div class="glass floating-badge badge-glow absolute top-10 left-0 px-5 py-3 rounded-2xl font-semibold text-sm border-2 border-orange-500/20 z-20">
+            Ml Engineer
+        </div>
+        <div class="glass floating-badge badge-glow absolute bottom-10 left-0 px-5 py-3 rounded-2xl font-semibold text-sm border-2 border-orange-500/20 z-20">
+            Data Scientist  
+        </div>
+
+        <div class="glass floating-badge badge-glow absolute top-10 right-0 px-5 py-3 rounded-2xl font-semibold text-sm border-2 border-orange-500/20 z-20">
+            AI Engineer
+        </div>
+        <div class="glass floating-badge badge-glow absolute bottom-10 right-0 px-5 py-3 rounded-2xl font-semibold text-sm border-2 border-orange-500/20 z-20">
+            Backend Developer
+        </div>
+    </div>
+</main>
+
+<script>
+const text = "Hello";
+let i = 0;
+
+function playKeyPress() {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    
+    const osc1 = ctx.createOscillator();
+    const osc2 = ctx.createOscillator();
+    const gain = ctx.createGain();
+    const filter = ctx.createBiquadFilter();
+
+    osc1.type = "square";
+    osc1.frequency.value = 800 + Math.random() * 200;
+    
+    osc2.type = "sine";
+    osc2.frequency.value = 100 + Math.random() * 50;
+
+    gain.gain.setValueAtTime(0.15, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
+
+    filter.type = "lowpass";
+    filter.frequency.value = 2000;
+    filter.Q.value = 1;
+
+    osc1.connect(filter);
+    osc2.connect(filter);
+    filter.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc1.start(ctx.currentTime);
+    osc2.start(ctx.currentTime);
+    osc1.stop(ctx.currentTime + 0.05);
+    osc2.stop(ctx.currentTime + 0.05);
+}
+
+function typeEffect() {
+    if (i < text.length) {
+        document.getElementById("typing-text").innerHTML += text.charAt(i);
+        playKeyPress();
+        i++;
+        const delay = 100 + Math.random() * 40;
+        setTimeout(typeEffect, delay);
+    } else {
+        setTimeout(() => {
+            document.getElementById("intro").classList.add("hide");
+        }, 1000);
+    }
+}
+
+window.addEventListener("load", () => {
+    setTimeout(typeEffect, 500);
+});
+</script>
+
+</body>
+</html>
