@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Sent | Sourav Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .page-shell {
+            width: 100%;
+            max-width: 980px;
+            background: linear-gradient(180deg, rgba(15, 15, 15, 0.95), rgba(10, 10, 10, 0.95));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+            overflow: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 2rem;
+            background: rgba(10, 10, 10, 0.92);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .logo span {
+            color: #ff6b35;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #999;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b35;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            padding: 3rem 2.5rem 2.5rem;
+        }
+
+        .hero-copy {
+            max-width: 520px;
+        }
+
+        .hero-copy h1 {
+            font-size: clamp(2.75rem, 4vw, 3.75rem);
+            line-height: 1.05;
+            margin-bottom: 1rem;
+        }
+
+        .hero-copy p {
+            color: #c9d1d9;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .status-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 22px;
+            padding: 1.8rem;
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.08);
+            backdrop-filter: blur(14px);
+        }
+
+        .status-card strong {
+            display: block;
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+
+        .status-card span {
+            color: #d0d7de;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .button-row a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.95rem 1.8rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .button-primary {
+            background: linear-gradient(135deg, #ff6b35, #fb923c);
+            color: #fff;
+            box-shadow: 0 18px 40px rgba(251, 146, 60, 0.25);
+        }
+
+        .button-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            border: 1px solid rgba(255, 107, 53, 0.45);
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .button-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.2rem;
+            border-radius: 999px;
+            background: rgba(255, 107, 53, 0.12);
+            color: #ffb37d;
+            font-weight: 700;
+            margin-bottom: 1.75rem;
+        }
+
+        .hero-visual {
+            background: radial-gradient(circle at top left, rgba(255, 107, 53, 0.15), transparent 35%),
+                radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 25%),
+                linear-gradient(180deg, rgba(17, 17, 17, 0.95), rgba(10, 10, 10, 0.92));
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 28px;
+            padding: 2rem;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .hero-visual h2 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+
+        .hero-visual p {
+            color: #c9d1d9;
+            line-height: 1.75;
+        }
+
+        .hero-visual .label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ffb37d;
+            font-weight: 700;
+        }
+
+        @media (max-width: 860px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .page-shell {
+                padding: 1rem;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-shell">
+        <header>
+            <div class="logo">Sourav<span>Portfolio</span></div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/projects">Works</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-copy">
+                <div class="badge">Message Sent</div>
+                <h1>Your message was delivered successfully.</h1>
+                <p>Thanks for getting in touch! I’ve received your email and will respond as soon as possible. Feel free
+                    to return to the homepage or send another message.</p>
+
+                <div class="button-row">
+                    <a href="/" class="button-primary">Back to Home</a>
+                    <a href="/contact" class="button-secondary">Send Another Message</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <h2>What's next?</h2>
+                <p>• I’ll review your message promptly.
+                    <br>• If you asked about a project, I’ll share details or next steps.
+                    <br>• If you requested a collaboration, I’ll respond with availability.
+                </p>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
