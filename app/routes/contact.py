@@ -22,8 +22,12 @@ def mailsend(request: Request, name: str = Form(...), email: str = Form(...), me
 """
     msg.set_content(body)
 
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+    with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
+
+        smtp.starttls()
+
         smtp.login(email_sender, email_password)
+
         smtp.send_message(msg)
 
     return templates.TemplateResponse("maildone.html", {"request": request})
