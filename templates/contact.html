@@ -8,6 +8,17 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+<!-- EMAILJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="text/javascript">
+   (function(){
+      emailjs.init("XQJP6AvBs_MBevKfv");
+   })();
+</script>
+
+
+
 <style>
 * {
     margin: 0;
@@ -181,6 +192,11 @@ button:hover {
     background: #ff8c42;
 }
 
+button:disabled {
+    background: #555;
+    cursor: not-allowed;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     .grid {
@@ -196,7 +212,7 @@ button:hover {
 
 <body>
 
-<!-- ===== NAVBAR (UNCHANGED) ===== -->
+<!-- ===== NAVBAR ===== -->
 <header>
     <nav>
         <div class="logo">Sourav<span>Portfolio</span></div>
@@ -225,7 +241,7 @@ button:hover {
 
     <p style="margin-top:15px;">
         <b>Email:</b><br>
-        <a href="mailto:your_email@gmail.com" style="color:#ff6b35;">
+        <a href="mailto:sourav177official@gmail.com" style="color:#ff6b35;">
             sourav177official@gmail.com
         </a>
     </p>
@@ -242,18 +258,47 @@ button:hover {
 <!-- RIGHT SIDE -->
 <div class="card">
     <h2>Send Message</h2>
-    
-    <form method="POST" action="/contact/mail">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message"  placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
+
+    <form id="contact-form">
+        <input type="text" id="user_name" name="name" placeholder="Your Name" required>
+
+        <input type="email" id="user_email" name="email" placeholder="Your Email" required>
+
+        <textarea id="message" name="message" placeholder="message" required></textarea>
+
+        <button type="submit" id="submit-btn">Send Message</button>
     </form>
 
 </div>
 
 </div>
 </section>
+
+<!-- FORM SUBMIT SCRIPT -->
+<script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const btn = document.getElementById('submit-btn');
+        btn.innerText = 'Sending...';
+        btn.disabled = true;
+
+        // REPLACE THESE WITH YOUR REAL VALUES
+        const serviceID = 'service_30epc9m';
+        const templateID = 'template_veh0qbg';
+
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                btn.innerText = 'Message Sent!';
+                alert('Thank you! Your message has been sent successfully.');
+                document.getElementById('contact-form').reset();
+            }, (err) => {
+                btn.innerText = 'Send Message';
+                btn.disabled = false;
+                alert('Oops! Something went wrong. Error: ' + JSON.stringify(err));
+            });
+    });
+</script>
 
 </body>
 </html>
