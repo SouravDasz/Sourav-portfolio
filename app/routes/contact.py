@@ -32,6 +32,6 @@ router = APIRouter()
 
 #     return templates.TemplateResponse("maildone.html", {"request": request})
 
-# @router.get("/contact")
-# def contect(request: Request):
-#     return templates.TemplateResponse(request, 'contact.html')
+@router.get("/contact")
+def contect(request: Request):
+    return templates.TemplateResponse(request, 'contact.html')
